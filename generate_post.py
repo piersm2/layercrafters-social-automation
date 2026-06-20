@@ -2,8 +2,8 @@
 """
 LayerCrafters Daily Post Generator -- v2
 Outputs a JSON payload to stdout with:
-  - caption           Instagram caption body (NO hashtags in caption)
-  - first_comment     Hashtags only -- post as first comment on Instagram
+  - caption           Instagram caption body with hashtags appended
+  - first_comment     Same as caption (hashtags in caption, not first comment)
   - facebook_copy     Caption + hashtags combined (for Facebook)
   - pinterest_copy    Keyword-rich Pinterest pin description
   - image_path        Local file path
@@ -11,7 +11,7 @@ Outputs a JSON payload to stdout with:
   - theme, product, date, weekday
 
 Changes from v1:
-  - Hashtags moved to first_comment (Instagram best practice)
+  - Hashtags included in caption (Instagram MCP connector does not support comments)
   - Post-history awareness: last 7 posts injected into prompt to avoid repeating angles
   - Smart hitch cover rotation by last-used date (no index drift on errors)
   - Pinterest copy generated as separate output field
@@ -164,7 +164,7 @@ PRODUCT TRUTH (always apply, no exceptions):
 
 CAPTION_RULES = """
 OUTPUT FORMAT (follow exactly):
-- Write the caption body first. No hashtags in the caption body.
+- Write the caption body first.
 - Then output a line that says exactly: HASHTAGS:
 - Then output 6-10 relevant hashtags on that same line after the colon.
 
@@ -400,6 +400,8 @@ def main():
         log.setdefault("hitch_last_used", {})[slug] = today_str
 
     caption_body, hashtags = generate_caption(theme, product, log)
+    # Combine caption and hashtags — Instagram MCP does not support first comments
+    instagram_caption = f"{caption_body}\n\n{hashtags}" if hashtags else caption_body
 
     pinterest_copy = ""
     if theme not in ("engagement_poll", "behind_the_scenes"):
@@ -423,7 +425,7 @@ def main():
         "date": today_str, "weekday": now.strftime("%A"), "theme": theme,
         "product": product["model"], "slug": product["slug"], "category": product["category"],
         "image_path": product["image_path"], "listing_url": product.get("listing_url", SHOP_URL),
-        "caption": caption_body, "first_comment": hashtags,
+        "caption": instagram_caption, "first_comment": hashtags,
         "facebook_copy": facebook_copy, "pinterest_copy": pinterest_copy,
         "draft_path": draft_path,
         "instagram_status": "pending", "facebook_email_status": "pending", "pinterest_email_status": "pending",
