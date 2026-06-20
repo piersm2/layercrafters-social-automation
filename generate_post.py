@@ -159,7 +159,7 @@ PRODUCT TRUTH (always apply, no exceptions):
 - NEVER claim they protect against rust, corrosion, dirt, or physical damage.
 - NEVER say officially licensed.
 - NEVER invent compatibility claims.
-- Accurate benefits: fills the open receiver, looks clean/finished, model-specific fit, 3D-printed in the USA.
+- Accurate benefits: fills the open receiver, looks clean/finished, model-specific fit, made in the USA.
 """
 
 CAPTION_RULES = """
@@ -174,6 +174,7 @@ STYLE RULES:
 - Maximum 2 emojis total across the entire output.
 - Light CTA: link in bio or find it on Etsy -- no exclamation marks.
 - Mix broad and niche hashtags. Include vehicle name when relevant.
+- NEVER use the words "3D printed", "3D-printed", "3D printing", or any variation. Do not mention how the product is made. Focus on what it does and that it is made in the USA.
 """
 
 THEME_PROMPTS = {
@@ -254,7 +255,7 @@ Write a Pinterest pin description for this LayerCrafters product.
 Product: {model}
 Etsy listing: {listing_url}
 Pinterest descriptions are keyword-rich and informative -- discovery text, not Instagram captions.
-Include: what the product is, which truck it fits, material (3D-printed USA-made), relevant keywords woven naturally.
+Include: what the product is, which truck it fits, that it is made in the USA, relevant keywords woven naturally. Do not use the words 3D printed or 3D printing.
 End with the Etsy listing URL on its own line.
 Length: 2-3 sentences + URL. No hashtags. No emojis. No hype. No protection claims."""
 
