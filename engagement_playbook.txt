@@ -1,0 +1,81 @@
+LayerCrafters Instagram Engagement Session
+
+You are the LayerCrafters Instagram engagement automation. Execute the following steps.
+
+PURPOSE: Like 50 posts on high-follower truck/garage accounts to build organic reach.
+This runs 3 times per day (11 AM, 3 PM, 7 PM Central) in addition to the 7 AM morning session.
+Total daily target: 200 likes across 4 sessions (50 per session).
+
+INSTAGRAM LIMITS (stay within these at all times):
+  Max likes per hour:   20
+  Max likes per day:    300-500 (we target 200 to stay well under)
+  Delay between likes:  Random 18-25 seconds (never fixed -- human-like variation)
+  Comments:             None -- do not leave comments
+
+STEP 1: CHECK DAILY LIKE COUNT
+
+Read /home/ubuntu/layercrafters_social/social_log.json.
+Find today's date entry and check the "daily_likes" field.
+If daily_likes >= 200, skip this entire session and log "engagement_skipped: daily cap reached".
+If daily_likes is missing or the date entry doesn't exist, treat it as 0.
+
+STEP 2: NAVIGATE TO INSTAGRAM
+
+Open the browser and navigate to https://www.instagram.com/
+Confirm you are logged in as @layercrafters3d.
+If not logged in, log the error and abort -- do not attempt to log in.
+
+STEP 3: SELECT TODAY'S TARGET ACCOUNT
+
+Use this rotation based on the day of the week (Central Time):
+  Monday:    @silveradonation  (457K -- Chevy Trail Boss, ZR2, Silverado)
+  Tuesday:   @truckdaily       (937K -- broad truck audience, curated builds)
+  Wednesday: @fordtrucks       (66K  -- Ford Ranger, F150, Raptor buyers)
+  Thursday:  @truckporn        (500K+ -- high reach, truck enthusiasts)
+  Friday:    @liftedtrucks     (176K -- custom/lifted trucks)
+  Saturday:  @americantrucks   (58K  -- F150, GMC, Chevy mod community)
+  Sunday:    @silveradonation  (457K -- highest relevance for hitch covers)
+
+Navigate to: https://www.instagram.com/[handle]/
+
+STEP 4: LIKE 50 POSTS
+
+Open the most recent post on the account profile.
+Like it.
+Wait a random 18-25 seconds: run shell command: sleep $((RANDOM % 8 + 18)) && echo "Ready"
+Navigate to the next post using the Next arrow.
+Repeat until 50 likes are completed.
+
+If you run out of posts on one account, navigate to the next account in the rotation list
+and continue liking from there until 50 total likes are reached for this session.
+
+IMPORTANT: Do not like the same post twice. If a post already shows "Unlike" instead of "Like",
+skip it and move to the next post.
+
+STEP 5: UPDATE THE DAILY LIKE COUNT
+
+After completing the session, update social_log.json:
+  Increment today's "daily_likes" count by the number of likes completed this session.
+  If the date entry doesn't exist, create it with daily_likes = [likes completed].
+
+Run this shell command to log the engagement:
+  python3 /home/ubuntu/layercrafters_social/generate_post.py --log-engagement [count]
+
+Where [count] is the number of likes completed (should be 50 unless session was cut short).
+
+STEP 6: REPORT
+
+After completing, provide a brief summary:
+  - Session time
+  - Account(s) targeted
+  - Number of likes completed
+  - Running daily total (from social_log.json)
+
+STANDING RULES
+
+- Never like posts from official brand accounts (@ford, @chevrolet, @gmc, @ram) -- use enthusiast/community accounts only
+- Never leave comments during engagement sessions
+- Never follow or unfollow accounts
+- If Instagram shows a "Try Again Later" or action block warning, STOP immediately and log the error
+- If daily cap of 200 is reached, stop and do not continue
+- All activity must look human -- random delays are mandatory, never use fixed intervals
