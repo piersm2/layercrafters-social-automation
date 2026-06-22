@@ -112,14 +112,21 @@ Execution:
 7. Repeat until 10 likes are completed for this session
 8. Update social_log.json: increment today's "daily_likes" count by 10
 
-Target accounts to rotate through (pick one per day, rotate daily):
-  Monday:    @fordrangertrucks
-  Tuesday:   @chevytrucks
-  Wednesday: @trucklifemagazine
-  Thursday:  @fordtrucks
-  Friday:    @gmctrucks
-  Saturday:  @workshoplife or @garagemahal
-  Sunday:    @truckaccessories or @hitches_and_towing
+Target hashtag feeds to rotate through (pick one per day, rotate daily):
+  Do NOT target brand accounts (@ford, @chevrolet, @gmc, etc.) -- use owner community hashtags only.
+  These are real truck owners, not brands. This is where actual buyers post.
+
+  Monday:    #fordrangerowner  or  #fordrangerowners
+  Tuesday:   #chevytrailboss  or  #trailbossowner
+  Wednesday: #gmcat4  or  #at4owner
+  Thursday:  #fordraptor  or  #raptorowner
+  Friday:    #dodgetrx  or  #trxowner
+  Saturday:  #workshopsetup  or  #garageshop
+  Sunday:    #hitchcover  or  #truckhitch
+
+  How to navigate to a hashtag feed:
+  Go to https://www.instagram.com/explore/tags/fordrangerowner/ (replace tag name as needed)
+  Scroll to Recent posts section and like posts from individual users (not brand reposts)
 
 STEP 7 -- SUNDAYS ONLY: WEEKLY REPORT
 
