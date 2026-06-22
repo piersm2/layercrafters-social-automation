@@ -105,64 +105,65 @@ INSTAGRAM LIMITS (strictly enforced):
   Cooldown between batches: 120 seconds (2 minutes)
   Comments:             None -- do not leave comments
 
-TARGET ACCOUNTS (rotate by day of week):
+TARGET ACCOUNTS -- DAILY SETS:
   Do NOT target official brand accounts (@ford, @chevrolet, @gmc) -- use enthusiast accounts only.
+  Spread 200 likes across 4-5 DIFFERENT accounts per day (40-50 likes per account).
+  This looks natural and avoids over-engaging any single account.
 
-  Verified high-follower target accounts:
+  Full account pool (all verified high-follower enthusiast accounts):
     @truckdaily        937K followers -- curated truck builds, wide audience
     @silveradonation   457K followers -- Silverado, Trail Boss, ZR2 -- direct buyer match
     @truckporn         500K+ followers -- high-volume truck showcase, broad reach
     @liftedtrucks      176K followers -- custom/lifted trucks, active community
     @americantrucks    58K followers  -- F150, GMC, Chevy mods -- exact target customer
     @fordtrucks        66K followers  -- Ford Ranger, F150, Raptor -- direct hitch cover buyers
+    @trailbosstribe    varies -- Chevy Trail Boss community -- direct buyer match
+    @gmc_trucks        varies -- GMC AT4, Denali owners
+    @fordrangertrucks  varies -- Ford Ranger owners
 
-  Daily rotation (primary account for each day):
-    Monday:    @silveradonation  (Chevy Trail Boss, ZR2 buyers)
-    Tuesday:   @truckdaily       (broad truck audience)
-    Wednesday: @fordtrucks       (Ford Ranger, Raptor buyers)
-    Thursday:  @truckporn        (high reach, truck enthusiasts)
-    Friday:    @liftedtrucks     (custom truck buyers)
-    Saturday:  @americantrucks   (F150, GMC, Chevy mod community)
-    Sunday:    @silveradonation  (repeat -- highest relevance for hitch covers)
+  Daily account sets (4 accounts per day, 50 likes each = 200 total):
+    Monday:    @silveradonation, @truckdaily, @liftedtrucks, @americantrucks
+    Tuesday:   @truckdaily, @truckporn, @fordtrucks, @silveradonation
+    Wednesday: @fordtrucks, @fordrangertrucks, @truckdaily, @liftedtrucks
+    Thursday:  @truckporn, @silveradonation, @americantrucks, @fordtrucks
+    Friday:    @liftedtrucks, @truckdaily, @truckporn, @fordrangertrucks
+    Saturday:  @americantrucks, @silveradonation, @truckporn, @fordtrucks
+    Sunday:    @silveradonation, @truckdaily, @fordtrucks, @liftedtrucks
 
-EXECUTION -- 4 BATCHES:
+EXECUTION -- 4 ACCOUNTS, 50 LIKES EACH:
 
 Before starting: Navigate to https://www.instagram.com/ and confirm logged in as @layercrafters3d.
-Navigate to today's target account: https://www.instagram.com/[handle]/
-Open the most recent post.
 
---- BATCH 1 (likes 1-20) ---
-Like 20 posts with random 18-25 second delays between each.
+--- ACCOUNT 1 (likes 1-50) ---
+Navigate to the first account in today's set: https://www.instagram.com/[handle]/
+Open the most recent post.
+Like 50 posts with random 18-25 second delays between each.
 Use: sleep $((RANDOM % 8 + 18)) && echo "Ready" between each like.
 If a post shows "Unlike" already, skip it and move to the next.
-If you run out of posts on one account, navigate to the next account in the rotation.
+After 50 likes on Account 1: Wait 120 seconds (2-minute cooldown).
+Run: sleep 120 && echo "Account 1 done -- moving to Account 2"
 
-After like #20: Wait 120 seconds (2-minute cooldown).
-Run: sleep 120 && echo "Batch 1 complete -- starting Batch 2"
+--- ACCOUNT 2 (likes 51-100) ---
+Navigate to the second account in today's set.
+Like 50 posts with random 18-25 second delays.
+After 50 likes: Wait 120 seconds.
+Run: sleep 120 && echo "Account 2 done -- moving to Account 3"
 
---- BATCH 2 (likes 21-40) ---
-Continue liking posts (same account or next in rotation).
-Like 20 more posts with random 18-25 second delays.
+--- ACCOUNT 3 (likes 101-150) ---
+Navigate to the third account in today's set.
+Like 50 posts with random 18-25 second delays.
+After 50 likes: Wait 120 seconds.
+Run: sleep 120 && echo "Account 3 done -- moving to Account 4"
 
-After like #40: Wait 120 seconds.
-Run: sleep 120 && echo "Batch 2 complete -- starting Batch 3"
+--- ACCOUNT 4 (likes 151-200) ---
+Navigate to the fourth account in today's set.
+Like 50 posts with random 18-25 second delays.
 
---- BATCH 3 (likes 41-60) ---
-Continue liking posts.
-Like 20 more posts with random 18-25 second delays.
+ABORT CONDITIONS (check after each account):
+- If Instagram shows "Try Again Later" or an action block warning: STOP immediately, log error, skip remaining accounts.
+- If daily_likes in social_log.json already >= 200: skip all remaining accounts.
 
-After like #60: Wait 120 seconds.
-Run: sleep 120 && echo "Batch 3 complete -- starting Batch 4"
-
---- BATCH 4 (likes 61-80... up to 200) ---
-Continue liking posts.
-Like the final 20 posts with random 18-25 second delays.
-
-ABORT CONDITIONS (check after each batch):
-- If Instagram shows "Try Again Later" or an action block warning: STOP immediately, log error, skip remaining batches.
-- If daily_likes in social_log.json already >= 200: skip all batches.
-
-AFTER ALL 4 BATCHES COMPLETE:
+AFTER ALL 4 ACCOUNTS COMPLETE:
 Run: python3 /home/ubuntu/layercrafters_social/generate_post.py --log-engagement 200
 (If fewer than 200 completed due to abort, use the actual count instead of 200.)
 
