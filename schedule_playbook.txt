@@ -92,7 +92,16 @@ If Instagram failed, set instagram_status to "failed" instead of "published".
 If pinterest_copy was empty, set pinterest_email_status to "skipped".
 
 
-STEP 6 -- SUNDAYS ONLY: WEEKLY REPORT
+STEP 6: DAILY BROWSER ENGAGEMENT ROUTINE
+
+After the post is published and logged, execute the following browser automation:
+1. Navigate to Instagram in the browser (https://www.instagram.com/)
+2. Search for relevant truck hashtags (e.g., #fordrangertrucks, #truckaccessories)
+3. Navigate to a relevant account or hashtag page
+4. Like 5 posts from small accounts, pausing 30 seconds between each like
+5. Do not leave comments
+
+STEP 7 -- SUNDAYS ONLY: WEEKLY REPORT
 
 If today is Sunday, after completing Steps 1-5:
 
