@@ -112,21 +112,31 @@ Execution:
 7. Repeat until 10 likes are completed for this session
 8. Update social_log.json: increment today's "daily_likes" count by 10
 
-Target hashtag feeds to rotate through (pick one per day, rotate daily):
-  Do NOT target brand accounts (@ford, @chevrolet, @gmc, etc.) -- use owner community hashtags only.
-  These are real truck owners, not brands. This is where actual buyers post.
+Target high-follower truck accounts -- navigate to their profile and like their 3-5 most recent posts.
+  These are verified high-follower accounts whose audiences match LayerCrafters buyers.
+  Do NOT target official brand accounts (@ford, @chevrolet, @gmc) -- use community/enthusiast accounts.
 
-  Monday:    #fordrangerowner  or  #fordrangerowners
-  Tuesday:   #chevytrailboss  or  #trailbossowner
-  Wednesday: #gmcat4  or  #at4owner
-  Thursday:  #fordraptor  or  #raptorowner
-  Friday:    #dodgetrx  or  #trxowner
-  Saturday:  #workshopsetup  or  #garageshop
-  Sunday:    #hitchcover  or  #truckhitch
+  Verified target accounts (rotate through daily):
+    @truckdaily        937K followers -- curated truck builds, wide audience
+    @silveradonation   457K followers -- Silverado, Trail Boss, ZR2 -- direct buyer match
+    @truckporn         500K+ followers -- high-volume truck showcase, broad reach
+    @liftedtrucks      176K followers -- custom/lifted trucks, active community
+    @americantrucks    58K followers  -- F150, GMC, Chevy mods -- exact target customer
+    @fordtrucks        66K followers  -- Ford Ranger, F150, Raptor -- direct hitch cover buyers
 
-  How to navigate to a hashtag feed:
-  Go to https://www.instagram.com/explore/tags/fordrangerowner/ (replace tag name as needed)
-  Scroll to Recent posts section and like posts from individual users (not brand reposts)
+  Daily rotation:
+    Monday:    @silveradonation  (Chevy Trail Boss, ZR2 buyers)
+    Tuesday:   @truckdaily       (broad truck audience)
+    Wednesday: @fordtrucks       (Ford Ranger, Raptor buyers)
+    Thursday:  @truckporn        (high reach, truck enthusiasts)
+    Friday:    @liftedtrucks     (custom truck buyers)
+    Saturday:  @americantrucks   (F150, GMC, Chevy mod community)
+    Sunday:    @silveradonation  (repeat -- highest relevance for hitch covers)
+
+  How to navigate to a profile:
+  Go to https://www.instagram.com/[handle]/ and open their most recent posts.
+  Like the 3 most recent posts per account, then move to the next account if more likes needed.
+  Total: 10 likes per session across 2-3 accounts.
 
 STEP 7 -- SUNDAYS ONLY: WEEKLY REPORT
 
